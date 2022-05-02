@@ -1,0 +1,22 @@
+<div class="dots" *ngIf="totalPages>1">
+    <button class="dot" *ngIf="currentPage-5>=1" (click)="selectPage(1)">
+        <i class="fas fa-angle-double-left"></i>
+    </button>
+
+    <button class="dot" *ngIf="currentPage!=1" (click)="selectPage(currentPage-1)">
+        <i class="fas fa-angle-left"></i>
+    </button>
+
+    <button *ngFor="let i of dots" class="dot" [ngClass]="{'active':currentPage===i}" (click)="selectPage(i)"
+        [disabled]="currentPage===i">
+        {{i}}
+    </button>
+
+    <button class="dot" *ngIf="currentPage!=totalPages" (click)="selectPage(currentPage+1)">
+        <i class="fas fa-angle-right"></i>
+    </button>
+
+    <button class="dot" *ngIf="currentPage+4<=totalPages" (click)="selectPage(totalPages)">
+        <i class="fas fa-angle-double-right"></i>
+    </button>
+</div>

@@ -1,0 +1,40 @@
+@use "/src/assets/scss/color.scss";
+
+:host {
+  display: flex;
+  justify-items: left;
+  align-items: center;
+  gap: 0.5rem;
+  color: color.$ctrl-bd;
+  font-size: 0.9rem;
+  padding: 0 .5rem;
+  .primary,
+  .invert {
+    display: flex;
+    align-items: center;
+    justify-items: left;
+    border-radius: 0.3rem;
+    height: 1.2rem;
+    width: 1.2rem;
+    cursor: pointer;
+    input,
+    .action {
+      display: none;
+    }
+  }
+  .primary {
+    border: solid 0.15rem color.$ctrl-bd;
+    color: color.$ctrl-bd;
+  }
+
+  .invert {
+    border: solid 0.15rem #967300;
+    color: #967300;
+  }
+
+  .checked {
+    .action {
+      display: block;
+    }
+  }
+}

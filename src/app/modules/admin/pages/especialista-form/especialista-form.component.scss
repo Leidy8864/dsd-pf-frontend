@@ -1,0 +1,26 @@
+.form {
+  .horarios {
+    padding: 1rem;
+    border: solid 1px #d1dae2;
+    border-radius: 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem 3rem;
+    >e-button {
+      grid-column: 1/-1;
+    }
+    .horario {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 3fr 3fr 1fr;
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .form {
+    .horarios {
+      grid-template-columns: 1fr;
+    }
+  }
+}

@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class Horario {\n  constructor() {\n    this.id = 0;\n    this.id_especialista = 0;\n    this.inicio = '00:00';\n    this.fin = '00:00';\n    this.estado = true;\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}

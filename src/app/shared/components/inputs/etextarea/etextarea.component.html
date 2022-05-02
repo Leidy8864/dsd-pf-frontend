@@ -1,0 +1,3 @@
+<span>{{desc}}</span>
+<textarea (keypress)="keyPressEvent($event)" (keyup)="keyUpEvent($event)" (paste)="pasteEvent($event)"
+    (ngModelChange)="updateChanges($event)" [placeholder]="placeholder">{{value}}</textarea>

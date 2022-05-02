@@ -1,0 +1,6 @@
+<span>{{desc}}</span>
+<select #select [(ngModel)]="value" (change)="echange()">
+    <option [value]="default">Seleccionar</option>
+    <option *ngFor="let item of data" [value]="key==''?item:item[key]">{{display==''?item:item[display]}}</option>
+</select>
+<i class="icon fas fa-chevron-down"></i>

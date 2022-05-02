@@ -1,0 +1,103 @@
+:host {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  height: 25rem;
+  display: grid;
+
+  .carousel {
+    position: relative;
+    .carousel-item {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transition: left 2s;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .carousel-dots {
+      position: absolute;
+      width: 100%;
+      left: 0;
+      bottom: 1rem;
+      display: grid;
+      justify-items: center;
+      .dots {
+        display: flex;
+        gap: 0.3rem;
+        background-color: #11074f80;
+        padding: 0.1rem;
+        border-radius: 2rem;
+        .dot {
+          position: relative;
+          width: 2.2rem;
+          height: 2.2rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          color: #ffb71d;
+          svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+
+            circle {
+              display: none;
+              stroke-width: 0.1rem;
+              stroke: #ffb71d;
+              fill: transparent;
+            }
+          }
+        }
+      }
+    }
+
+    .back,
+    .next {
+      position: absolute;
+      background-color: transparent;
+      width: 15%;
+      height: 100%;
+      cursor: pointer;
+      background: linear-gradient(90deg, #11074f3a, #0000);
+      transition: filter 0.3s;
+      color: #ffb71d;
+      font-size: 1.2rem;
+      &:hover {
+        filter: brightness(6);
+      }
+    }
+
+    .next {
+      background: linear-gradient(-90deg, #11074f3a, #0000);
+      right: 0;
+    }
+  }
+}
+
+.dot-active {
+  span {
+    color: var(--maincolor);
+  }
+  circle {
+    display: inline !important;
+    stroke-dasharray: 6.3rem;
+    stroke-dashoffset: 6.3rem;
+    animation: linear dot-transition 10s;
+  }
+  @keyframes dot-transition {
+    from {
+      stroke-dashoffset: 0rem;
+    }
+    to {
+      stroke-dashoffset: 6.3rem;
+    }
+  }
+}

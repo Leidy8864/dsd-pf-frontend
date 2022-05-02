@@ -1,0 +1,45 @@
+@use "/src/assets/scss/color.scss";
+
+:host {
+  display: grid;
+  align-items: center;
+  justify-content: flex-end;
+
+  > .dots {
+    display: flex;
+    overflow: hidden;
+    border-radius: 1rem;
+    background-color: color.$ctrl-bg;
+    > .dot {
+      width: 2.2rem;
+      height: 2.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border-radius: 0.25rem;
+      background-color: transparent;
+      color: color.$ctrl-bd;
+
+      transition: background-color 0.2s;
+      font-size: 0.9rem;
+      &:hover {
+        background-color: color.$ctrl-bd;
+        color: color.$ctrl-bg;
+        font-weight: bold;
+      }
+
+      &.active {
+        background-color: color.$ctrl-bd;
+        color: color.$ctrl-bg;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  :host {
+    justify-content: center;
+  }
+}

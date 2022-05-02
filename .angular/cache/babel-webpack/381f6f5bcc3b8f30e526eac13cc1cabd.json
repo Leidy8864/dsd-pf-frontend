@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class Especialista {\n  constructor() {\n    this.id = 0;\n    this.nombres = '';\n    this.apellidos = '';\n    this.dni = '';\n    this.id_especialidad = 0;\n    this.id_sucursal = 0;\n    this.estado = true;\n    this.especialidad = '';\n    this.sucursal = '';\n    this.horarios = [];\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}

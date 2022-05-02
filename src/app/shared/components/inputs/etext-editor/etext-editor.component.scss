@@ -1,0 +1,46 @@
+:host {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.25rem;
+  overflow-x: hidden;
+  background: #d8e5f5;
+
+  > .options {
+    position: absolute;
+    display: flex;
+    max-width: 50%;
+    justify-content: flex-end;
+    right: 0.5rem;
+    top: 0.5rem;
+    gap: 0.25rem;
+    > .option {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+      color: #fff;
+      background: #01327b55;
+      height: 2rem;
+      width: 2rem;
+      border-radius: 0.1rem;
+      border: solid 0.1rem #00173891;
+    }
+  }
+  > span {
+    padding: 0;
+    position: absolute;
+    user-select: none;
+    font-size: 0.7rem;
+    left: 0.5rem;
+    color: #009688;
+  }
+  > .editor-area {
+    resize: vertical;
+    overflow: auto;
+    overflow-x: hidden;
+    min-height: 10rem;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    padding-top: 0rem;
+  }
+}

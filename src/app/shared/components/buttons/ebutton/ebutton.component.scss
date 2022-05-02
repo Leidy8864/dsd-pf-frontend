@@ -1,0 +1,62 @@
+@use "/src/assets/scss/color.scss";
+
+:host {
+  display: grid;
+  min-width: 2.5rem;
+  height: 2.5rem;
+
+  > button {
+    position: relative;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    padding: 0 1rem;
+    font-size: 0.9rem;
+    transition: background-color 0.5s, color 0.5s;
+    color: color.$ctrl-bg;
+    background-color: color.$ctrl-bd;
+    &:hover,
+    &:focus {
+      background-color: color.$ctrl-bg;
+      color: color.$ctrl-bd;
+    }
+    &:disabled {
+      filter: saturate(0.5);
+      color: color.$ctrl-bg;
+      background-color: color.$ctrl-bd;
+      cursor: not-allowed;
+    }
+  }
+
+  .btn-active {
+    &::before {
+      position: absolute;
+      box-sizing: border-box;
+      content: "";
+      border-radius: 0.25rem;
+      border: 0.1rem solid transparent;
+      animation: anim 0.5s;
+
+      @keyframes anim {
+        from {
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          opacity: 1;
+          border: 0.1rem solid color.$ctrl-bd;
+        }
+        to {
+          top: -0.4rem;
+          left: -0.4rem;
+          height: calc(100% + 0.8rem);
+          width: calc(100% + 0.8rem);
+          opacity: 0;
+          border: 0.1rem solid color.$ctrl-bd;
+        }
+      }
+    }
+  }
+}

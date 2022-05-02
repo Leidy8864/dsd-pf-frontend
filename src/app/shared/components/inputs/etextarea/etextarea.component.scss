@@ -1,0 +1,50 @@
+@use "/src/assets/scss/color.scss";
+
+:host {
+  position: relative;
+  display: grid;
+  border-radius: 0.25rem;
+  overflow: hidden;
+
+  span {
+    padding: 0;
+    position: absolute;
+    user-select: none;
+    font-size: 0.7rem;
+    left: 0.5rem;
+    color: color.$ctrl-bd;
+  }
+
+  textarea {
+      font-family: 'roboto';
+    background-color: color.$ctrl-bg;
+    min-height: 6rem;
+    resize: vertical;
+    font-size: 0.9rem;
+    width: 100%;
+    padding: 0.5rem;
+    padding-top: 1rem;
+    border: none;
+    color: color.$ctrl-ft;
+    &::placeholder {
+      color: color.$ctrl-ft-ph;
+      opacity: 1;
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    display: block;
+    bottom: 0;
+    width: 0;
+    transition: width 0.5s;
+    border-bottom: solid 0.15rem color.$ctrl-bd;
+  }
+
+  &:focus-within {
+    &::before {
+      width: 100%;
+    }
+  }
+}

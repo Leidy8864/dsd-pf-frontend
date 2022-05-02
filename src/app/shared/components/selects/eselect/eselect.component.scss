@@ -1,0 +1,55 @@
+
+@use "/src/assets/scss/color.scss";
+:host {
+  display: grid;
+  position: relative;
+  border-radius: 0.25rem;
+  height: 2.5rem;
+  overflow: hidden;
+
+  span {
+    padding: 0;
+    position: absolute;
+    user-select: none;
+    font-size: 0.7rem;
+    left: .5rem;
+    color: color.$ctrl-bd;
+  }
+
+  select {
+    appearance: none;
+    background-color: color.$ctrl-bg;
+    font-size: .9rem;
+    width: 100%;
+    padding: .5rem;
+    padding-top: 1rem;
+    border: none;
+    color: color.$ctrl-ft;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    display: block;
+    bottom: 0;
+    width: 0;
+    transition: width 0.5s;
+    border-bottom: solid 0.15rem color.$ctrl-bd;
+  }
+
+  &:focus-within {
+    &::before {
+      width: 100%;
+    }
+    .icon {
+      transform: rotate(180deg);
+    }
+  }
+  .icon {
+    position: absolute;
+    color: color.$ctrl-bd;
+    font-size: .9rem;
+    height: 100%;
+    transition:transform .2s;
+    right: .4rem;
+  }
+}

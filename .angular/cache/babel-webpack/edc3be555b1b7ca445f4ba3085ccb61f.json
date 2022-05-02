@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class Pagination {\n  constructor() {\n    this.content = [];\n    this.totalPages = 0;\n    this.currentPage = 0;\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}

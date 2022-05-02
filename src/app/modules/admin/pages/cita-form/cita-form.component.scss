@@ -1,0 +1,84 @@
+:host {
+  display: grid;
+  align-items: flex-start;
+  gap: 1rem;
+
+  .form {
+    animation: form-anim 1s;
+
+    @keyframes form-anim {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  }
+
+  .filter {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .especialista {
+    height: 6rem;
+    display: grid;
+    align-content: center;
+    padding: 0 2rem;
+    h3 {
+    }
+    h4 {
+      color: #0fc7e4;
+    }
+    h5 {
+      color: #9eccd3;
+    }
+  }
+  .finish {
+    display: grid;
+    padding: 2rem 0;
+    justify-items: center;
+    gap: 0.5rem;
+  }
+
+  .horarios {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    // max-width: 50%;
+    .horario {
+      background-color: #00ccf0;
+      box-shadow: 0 0 0.5rem #0a3c64;
+      padding: 0.3rem;
+      border-radius: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: #d8f1fa;
+      cursor: pointer;
+      transition: transform 0.2s;
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  .no-disponible {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .messaje {
+      padding: 0.5rem 2rem;
+      border-radius: .5rem;
+      border: solid 2px #016ec7;
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .filter {
+    grid-template-columns: 1fr !important;
+  }
+}

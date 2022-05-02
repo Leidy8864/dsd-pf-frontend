@@ -1,0 +1,5 @@
+<div [class]="className" (click)="check()" [ngClass]="{'checked':value}">
+    <i class="action fas fa-check"></i>
+    <input #checkbox type="checkbox" [(ngModel)]="value" (ngModelChange)="updateChanges($event)">
+</div>
+<div *ngIf="desc!=''">{{desc}}</div>

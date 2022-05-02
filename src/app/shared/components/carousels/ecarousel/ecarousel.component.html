@@ -1,0 +1,21 @@
+<div class="carousel">
+    <div class="carousel-item" *ngFor="let item of data">
+        <img [src]="item" alt="">
+    </div>
+
+    <button (click)="setLocation(indexElement-1)" class="back"><i class="fas fa-chevron-left"></i></button>
+    <button (click)="setLocation(indexElement+1)" class="next"><i class="fas fa-chevron-right"></i></button>
+
+    <div class="carousel-dots">
+        <div class="dots">
+            <div class="dot" *ngFor="let item of data; let i=index" (click)="setLocation(i)"
+                [ngClass]="{'dot-active':i==indexElement}">{{i+1}}
+                <svg>
+                    <g>
+                        <circle [attr.cx]="attr.cx" [attr.cy]="attr.cy" [attr.r]="attr.r" />
+                    </g>
+                </svg>
+            </div>
+        </div>
+    </div>
+</div>
