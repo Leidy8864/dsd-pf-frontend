@@ -12,23 +12,26 @@ export class EspecialidadService {
 
   constructor(private http: HttpClient) { }
 
-  urlBase: string = `${environment.api}/Especialidad`;
+  urlBase: string = `${environment.apiespecialidad}/especialidad`;
 
   findAll() {
     return this.http.get<Especialidad[]>(this.urlBase);
   }
-
   
   pagination(page: number = 1, searchText: string = "_") {
     return this.http.get<Pagination<Especialidad>>(`${this.urlBase}/pagination/${searchText}/${page}`);
   }
 
   findById(id: number) {
-    return this.http.get<Especialidad>(`${this.urlBase}/${id}`);
+    return this.http.get<Especialidad>(`${this.urlBase}/findById/${id}`);
   }
 
   save(Especialidad: Especialidad) {
     return this.http.post<Especialidad>(this.urlBase, Especialidad);
+  }
+
+  update(Especialidad: Especialidad) {
+    return this.http.put<Especialidad>(this.urlBase, Especialidad);
   }
 
   deleteById(id: number) {

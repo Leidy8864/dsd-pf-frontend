@@ -30,15 +30,20 @@ table {
   table {
     thead {
       display: none;
+      text-align: center;
     }
     tbody {
       display: grid;
+      text-align: center;
     }
 
     tr {
       td {
         display: grid;
         padding: 1rem;
+        text-align: center;
+      }
+      th {
         text-align: center;
       }
       .actions {

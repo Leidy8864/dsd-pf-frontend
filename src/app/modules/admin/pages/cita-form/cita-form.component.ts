@@ -1,5 +1,5 @@
 import { Component, Injectable, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CitaService } from 'src/app/core/http/cita.service';
@@ -47,14 +47,16 @@ export class CitaFormComponent implements OnInit {
   }
 
   loadPagination(page: number = 1) {
+    console.log(this.formGroup.get('fecha')!.value)
     var id_especialidad = this.formGroup.get('id_especialidad')!.value;
     var id_sucursal = this.formGroup.get('id_sucursal')!.value;
-    var fecha = this.formGroup.get('fecha')!.value;
+    var fecha = this.formGroup.get('fecha')!.value || (new Date()).toISOString().substring(0,10);
 
     var filter: Filter = {
       page: page,
       id_especialidad: Number(id_especialidad),
       id_sucursal: Number(id_sucursal),
+      id_especialista: 0,
       fecha: fecha,
       numItems: 10
     };

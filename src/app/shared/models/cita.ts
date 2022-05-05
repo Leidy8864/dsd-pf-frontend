@@ -7,10 +7,27 @@ export class Cita {
     id_horario: number;
     fecha: string;
     condicion: string;
-    sucursal: string;
-    especialidad: string;
-    especialista: string;
-    horario: string;
+    sucursal: {
+        id: number;
+        nombre: string;
+        direccion: string;
+    };
+    especialidad: {
+        id: number;
+        nombre: string;
+        descripcion: string;
+    };
+    especialista: {
+        id: number;
+        nombres: string;
+        apellidos: string;
+    };
+    horario: {
+        id: number;
+        fecha: string;
+        inicio: string;
+        fin: string;
+    };
 
     constructor() {
         var today = new Date();
@@ -25,9 +42,26 @@ export class Cita {
         console.log(today);
         console.log(this.fecha);
         this.condicion = '';
-        this.sucursal = '';
-        this.especialidad = '';
-        this.especialista = '';
-        this.horario = '';
+        this.sucursal = {
+            id : 0,
+            nombre : '',
+            direccion : '',
+        };
+        this.especialidad = {
+            id : 0,
+            nombre : '',
+            descripcion : '',
+        };
+        this.especialista = {
+            id : 0,
+            nombres : '',
+            apellidos : '',
+        };
+        this.horario = {
+            id : 0,
+            fecha : '',
+            inicio : '',
+            fin : '',
+        };
     }
 }

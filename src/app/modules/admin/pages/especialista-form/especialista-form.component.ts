@@ -2,6 +2,7 @@ import { Component, Injectable, OnInit } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, ActivatedRouteSnapshot, Resolve, Router, RouteReuseStrategy, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
+import { CalendarOptions } from '@fullcalendar/angular';
 import { EspecialistaService } from 'src/app/core/http/especialista.service';
 import { HorarioService } from 'src/app/core/http/horario.service';
 import { Especialidad } from 'src/app/shared/models/especialidad';
@@ -68,7 +69,14 @@ export class EspecialistaFormComponent implements OnInit {
 
   get horarios(): FormArray {
     return this.formGroup.get('horarios') as FormArray;
+  }
 
+  beginValid(abstractControl: AbstractControl) {
+    return abstractControl.get('estado')?.value > 0;
+  }
+
+  stateDesc(abstractControl: AbstractControl) {
+    return abstractControl.get('estado')?.value == 0 ? "Reservado" : "Sin reserva";
   }
 
   agregarHorario(horario: Horario = new Horario) {
@@ -77,6 +85,7 @@ export class EspecialistaFormComponent implements OnInit {
       inicio: [horario.inicio, Validators.required],
       fin: [horario.fin, Validators.required],
       estado: [horario.estado, Validators.required],
+      fecha: [horario.fecha, Validators.required],
     }));
   }
 
@@ -89,9 +98,16 @@ export class EspecialistaFormComponent implements OnInit {
   }
 
   save() {
-    this.especialistaService.save(this.formatValue()).subscribe(data => {
-      this.router.navigate(['admin/especialista']);
-    });
+    console.log(this.formGroup.value.id);
+    if(this.formGroup.value.id) {
+      this.especialistaService.update(this.formGroup.value).subscribe(data => {
+        this.router.navigate(['admin/especialista']);
+      });
+    } else {
+      this.especialistaService.save(this.formatValue()).subscribe(data => {
+        this.router.navigate(['admin/especialista']);
+      });
+    }
   }
 
   ngOnInit(): void {
@@ -106,6 +122,7 @@ export class EspecialistaFormResolve implements Resolve<EspecialistaLoad>{
   }
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): EspecialistaLoad | Observable<EspecialistaLoad> | Promise<EspecialistaLoad> {
     let id = Number(route.paramMap.get('id'));
-    return this.especialistaService.load(id ? id : 0);
+    let page = route.queryParamMap.get('page');
+    return this.especialistaService.load(page ? Number(page) : 1, id ? id : 0);
   }
 }

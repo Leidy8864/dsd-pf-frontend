@@ -5,9 +5,9 @@
     <e-input formControlName="apellidos" desc="Apellidos"></e-input>
     <e-input formControlName="email" desc="E-mail"></e-input>
     <e-select formControlName="id_tipo_documento" desc="Documento"
-        [data]="[{id:1,desc:'DNI'},{id:2,desc:'CARNET DE EXTRANJERIA'}]" key="id" display="desc">
-    </e-select>
-    <e-input formControlName="nro_documento" desc="Nro Documento"></e-input>
+        [data]="[{id:1,desc:'DNI'}]" key="id" display="desc">
+    </e-select><!--,{id:2,desc:'CARNET DE EXTRANJERIA'}-->
+    <e-input formControlName="nro_documento" type="number" desc="Nro Documento" limit="8"></e-input>
     <e-input formControlName="contrasena" type="password" desc="Contraseña"></e-input>
     <e-input formControlName="confirm_contrasena" type="password" desc="Confirmar Contraseña"></e-input>
     <echeck formControlName="terminos01" desc="Acepto los terminos y condiciones"></echeck>

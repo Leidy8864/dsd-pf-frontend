@@ -13,7 +13,7 @@ export class EspecialistaService {
 
   constructor(private http: HttpClient) { }
 
-  urlBase: string = `${environment.api}/especialista`;
+  urlBase: string = `${environment.apiespecialista}/especialista`;
 
   findAll() {
     return this.http.get<Especialista[]>(this.urlBase);
@@ -31,13 +31,16 @@ export class EspecialistaService {
     return this.http.get<Especialista>(`${this.urlBase}/${id}`);
   }
 
-  load(id: number) {
-    return this.http.get<EspecialistaLoad>(`${this.urlBase}/load/${id}`);
+  load(page: number = 1, id: number = 0) {
+    return this.http.get<EspecialistaLoad>(`${this.urlBase}/load/${id}/${page}`);
   }
-
 
   save(especialista: Especialista) {
     return this.http.post<Especialista>(this.urlBase, especialista);
+  }
+
+  update(especialista: Especialista) {
+    return this.http.put<Especialista>(this.urlBase, especialista);
   }
 
   deleteById(id: number) {

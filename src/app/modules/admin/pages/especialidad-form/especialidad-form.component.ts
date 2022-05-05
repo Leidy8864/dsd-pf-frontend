@@ -32,15 +32,23 @@ export class EspecialidadFormComponent implements OnInit {
       id: [especialidad.id, Validators.required],
       nombre: [especialidad.nombre, Validators.required],
       descripcion: [especialidad.descripcion, Validators.required],
+      id_sucursal: 1
     });
   }
 
   save() {
-    this.especialidadService.save(this.formGroup.value).subscribe(data => {
-      this.router.navigate(['admin/especialidad']);
-    });
+    console.log(this.formGroup.value.id);
+    if(this.formGroup.value.id) {
+      this.especialidadService.update(this.formGroup.value).subscribe(data => {
+        this.router.navigate(['admin/especialidad']);
+      });
+    } else {
+      this.especialidadService.save(this.formGroup.value).subscribe(data => {
+        this.router.navigate(['admin/especialidad']);
+      });
+    }    
   }
-
+  
   ngOnInit(): void {
 
   }

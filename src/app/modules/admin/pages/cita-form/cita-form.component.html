@@ -15,16 +15,24 @@
 <div *ngIf="active=='filter'" class="form" [formGroup]="formGroup" novalidate>
     <div class="title">Registra tu Cita</div>
     <div class="filter">
-        <e-input type="date" formControlName="fecha" desc="fecha" (ngModelChange)="loadPagination()"></e-input>
+        <e-input type="date" formControlName="fecha" desc="Fecha" (ngModelChange)="loadPagination()"></e-input>
         <e-select desc="Especialidad" formControlName="id_especialidad" [data]="_especialidades" key="id"
             display="nombre" [default]="0" (ngModelChange)="loadPagination()">
         </e-select>
-
         <e-select desc="Sucursal" formControlName="id_sucursal" [data]="_sucursales" key="id" display="nombre"
             [default]="0" (ngModelChange)="loadPagination()">
         </e-select>
     </div>
-    <table>
+    <hr>
+    <hr>
+    <div *ngIf="_pagination.content.length==0" class="title">No hay horarios disponibles para esta fecha<br><br></div>
+    <table *ngIf="_pagination.content.length>0">
+        <thead align="center">
+            <tr>
+                <th>Especialista</th>
+                <th>Horario</th>
+            </tr>
+        </thead>
         <tbody>
             <tr *ngFor="let item of _pagination.content">
                 <td>
@@ -60,11 +68,7 @@
     <div class="title">Registra tu Cita</div>
     <div class="finish">
         <h3>Para</h3>
-        <p>{{tokenService.getUsuario()!.nombres+ ', '+tokenService.getUsuario()!.apellidos }}</p>
-        <h3>Sucursal</h3>
-        <p>{{_especialista.sucursal}}</p>
-        <h3>Especialidad</h3>
-        <p>{{_especialista.especialidad}}</p>
+        <p>{{tokenService.getUsuario()!.nombres+ ' '+tokenService.getUsuario()!.apellidos }}</p>
         <h3>Especialista</h3>
         <p>{{_especialista.nombres + ' '+_especialista.apellidos}}</p>
         <h3>Fecha</h3>

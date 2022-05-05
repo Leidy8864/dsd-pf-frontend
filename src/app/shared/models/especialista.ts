@@ -8,8 +8,16 @@ export class Especialista {
     id_especialidad: number;
     id_sucursal: number;
     estado: boolean;
-    especialidad: string;
-    sucursal: string;
+    sucursal: {
+        id: number;
+        nombre: string;
+        direccion: string;
+    };
+    especialidad: {
+        id: number;
+        nombre: string;
+        descripcion: string;
+    };
     horarios: Horario[];
     constructor() {
         this.id = 0;
@@ -19,8 +27,16 @@ export class Especialista {
         this.id_especialidad = 0;
         this.id_sucursal = 0;
         this.estado = true;
-        this.especialidad = '';
-        this.sucursal = '';
+        this.sucursal = {
+            id : 0,
+            nombre : '',
+            direccion : '',
+        };
+        this.especialidad = {
+            id : 0,
+            nombre : '',
+            descripcion : '',
+        };
         this.horarios = [];
     }
 }

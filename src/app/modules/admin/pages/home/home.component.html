@@ -1,9 +1,9 @@
 <div class="form">
 
-    <div class="title">Citas Pendientes</div>
+    <div class="title">CITAS AGENDADAS</div>
     <div *ngIf="pagination.content.length==0" class="title"><br>No tiene citas pendientes<br><br></div>
     <table *ngIf="pagination.content.length>0">
-        <thead>
+        <thead align="center">
             <tr>
                 <th>Fecha</th>
                 <th>Horario</th>
@@ -13,12 +13,12 @@
                 <!-- <th>Aciones</th> -->
             </tr>
         </thead>
-        <tbody>
+        <tbody align="center">
             <tr *ngFor="let item of pagination.content">
                 <td>{{item.fecha.replace('0:00:00','') }}</td>
-                <td>{{item.horario}}</td>
-                <td>{{item.especialidad }}</td>
-                <td>{{item.especialista}}</td>
+                <td>{{item.horario.inicio}} - {{item.horario.fin}}</td>
+                <td>{{item.especialidad.nombre}}</td>
+                <td>{{item.especialista.nombres}} {{item.especialista.apellidos}}</td>
                 <td>{{item.condicion}}</td>
                 <!-- <td>{{item.id}}</td> -->
                 <!-- <td>{{item.nombre}}</td>Z -->

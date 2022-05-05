@@ -16,8 +16,10 @@ import { EspecialidadFormComponent } from './pages/especialidad-form/especialida
 import { EspecialidadComponent } from './pages/especialidad/especialidad.component';
 import { EspecialistaFormComponent } from './pages/especialista-form/especialista-form.component';
 import { EspecialistaComponent } from './pages/especialista/especialista.component';
-
-
+import { FullCalendarModule } from '@fullcalendar/angular';
+import interactionPlugin from '@fullcalendar/interaction';
+import dayGridPlugin from '@fullcalendar/daygrid';
+FullCalendarModule.registerPlugins([interactionPlugin, dayGridPlugin]);
 @NgModule({
   declarations: [
     AdminComponent,
@@ -40,6 +42,7 @@ import { EspecialistaComponent } from './pages/especialista/especialista.compone
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
+    FullCalendarModule,
   ]
 })
 export class AdminModule { }

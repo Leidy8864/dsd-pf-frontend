@@ -13,7 +13,7 @@ export class CitaService {
 
   constructor(private http: HttpClient) { }
 
-  urlBase: string = `${environment.api}/cita`;
+  urlBase: string = `${environment.apicita}/cita`;
 
 
   load() {

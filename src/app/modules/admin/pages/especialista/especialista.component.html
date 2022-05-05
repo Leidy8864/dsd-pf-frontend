@@ -16,14 +16,14 @@
                 <th>Sucursal</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody align="center">
             <tr *ngFor="let item of pagination.content">
                 <td>{{item.id}}</td>
                 <td>{{item.nombres}}</td>
                 <td>{{item.apellidos}}</td>
                 <td>{{item.dni}}</td>
-                <td>{{item.especialidad}}</td>
-                <td>{{item.sucursal}}</td>
+                <td>{{item.especialidad.nombre}}</td>
+                <td>{{item.sucursal.nombre}}</td>
                 <td>
                     <div class="actions">
                         <div class="action a-active" [routerLink]="['/admin/especialista/form',item.id]"><i

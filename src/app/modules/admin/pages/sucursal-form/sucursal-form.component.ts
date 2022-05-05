@@ -37,9 +37,16 @@ export class SucursalFormComponent implements OnInit {
   }
 
   save() {
-    this.sucursalService.save(this.formGroup.value).subscribe(data => {
-      this.router.navigate(['admin/sucursal']);
-    });
+    console.log(this.formGroup.value.id);
+    if(this.formGroup.value.id) {
+      this.sucursalService.update(this.formGroup.value).subscribe(data => {
+        this.router.navigate(['admin/sucursal']);
+      });
+    } else {
+      this.sucursalService.save(this.formGroup.value).subscribe(data => {
+        this.router.navigate(['admin/sucursal']);
+      });
+    }
   }
 
   ngOnInit(): void {

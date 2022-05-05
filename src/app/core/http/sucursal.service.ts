@@ -11,7 +11,7 @@ export class SucursalService {
 
   constructor(private http: HttpClient) { }
 
-  urlBase: string = `${environment.api}/sucursal`;
+  urlBase: string = `${environment.apisucursal}/sucursal`;
 
   findAll() {
     return this.http.get<Sucursal[]>(this.urlBase);
@@ -22,11 +22,15 @@ export class SucursalService {
   }
 
   findById(id: number) {
-    return this.http.get<Sucursal>(`${this.urlBase}/${id}`);
+    return this.http.get<Sucursal>(`${this.urlBase}/findById/${id}`);
   }
 
   save(sucursal: Sucursal) {
     return this.http.post<Sucursal>(this.urlBase, sucursal);
+  }
+
+  update(sucursal: Sucursal) {
+    return this.http.put<Sucursal>(this.urlBase, sucursal);
   }
 
   deleteById(id: number) {
